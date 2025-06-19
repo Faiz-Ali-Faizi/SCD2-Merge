@@ -1,0 +1,192 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sourceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="processGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="storageGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8fafc"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="80" fill="url(#headerGradient)"/>
+  <text x="600" y="30" text-anchor="middle" fill="white" font-size="24" font-weight="bold" font-family="Arial, sans-serif">
+    SCD2 Merge with Booking Fact Aggregation - Databricks Pipeline
+  </text>
+  <text x="600" y="55" text-anchor="middle" fill="white" font-size="14" font-family="Arial, sans-serif">
+    Data Quality • Historical Tracking • Real-time Processing
+  </text>
+  
+  <!-- Data Sources Layer -->
+  <rect x="50" y="120" width="300" height="600" fill="url(#sourceGradient)" rx="15" filter="url(#shadow)" opacity="0.1"/>
+  <text x="200" y="145" text-anchor="middle" fill="#2563eb" font-size="16" font-weight="bold" font-family="Arial, sans-serif">
+    📥 DATA SOURCES
+  </text>
+  
+  <!-- CSV Files -->
+  <rect x="70" y="170" width="120" height="80" fill="white" rx="8" stroke="#4facfe" stroke-width="2" filter="url(#shadow)"/>
+  <text x="130" y="190" text-anchor="middle" fill="#1e40af" font-size="12" font-weight="bold" font-family="Arial, sans-serif">📄 Bookings CSV</text>
+  <text x="130" y="205" text-anchor="middle" fill="#64748b" font-size="10" font-family="Arial, sans-serif">bookings_&lt;date&gt;.csv</text>
+  <text x="130" y="220" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">booking_id, customer_id</text>
+  <text x="130" y="235" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">amount, discount, qty</text>
+  
+  <rect x="210" y="170" width="120" height="80" fill="white" rx="8" stroke="#4facfe" stroke-width="2" filter="url(#shadow)"/>
+  <text x="270" y="190" text-anchor="middle" fill="#1e40af" font-size="12" font-weight="bold" font-family="Arial, sans-serif">👥 Customers CSV</text>
+  <text x="270" y="205" text-anchor="middle" fill="#64748b" font-size="10" font-family="Arial, sans-serif">customers_&lt;date&gt;.csv</text>
+  <text x="270" y="220" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">customer_id, name</text>
+  <text x="270" y="235" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">email, address</text>
+  
+  <!-- Databricks Volumes -->
+  <rect x="70" y="270" width="260" height="60" fill="white" rx="8" stroke="#4facfe" stroke-width="2" filter="url(#shadow)"/>
+  <text x="200" y="290" text-anchor="middle" fill="#1e40af" font-size="12" font-weight="bold" font-family="Arial, sans-serif">📁 Databricks Volumes</text>
+  <text x="200" y="305" text-anchor="middle" fill="#64748b" font-size="10" font-family="Arial, sans-serif">/Volumes/incremental_load/</text>
+  <text x="200" y="320" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Dynamic file path construction</text>
+  
+  <!-- Parameters -->
+  <rect x="70" y="350" width="260" height="50" fill="white" rx="8" stroke="#4facfe" stroke-width="2" filter="url(#shadow)"/>
+  <text x="200" y="370" text-anchor="middle" fill="#1e40af" font-size="12" font-weight="bold" font-family="Arial, sans-serif">⚙️ Parameters</text>
+  <text x="200" y="385" text-anchor="middle" fill="#64748b" font-size="10" font-family="Arial, sans-serif">arrival_date via dbutils.widgets</text>
+  <text x="200" y="395" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Example: "2024-07-26"</text>
+  
+  <!-- Workflow Orchestration -->
+  <rect x="70" y="420" width="260" height="80" fill="white" rx="8" stroke="#4facfe" stroke-width="2" filter="url(#shadow)"/>
+  <text x="200" y="440" text-anchor="middle" fill="#1e40af" font-size="12" font-weight="bold" font-family="Arial, sans-serif">🔄 Databricks Workflows</text>
+  <text x="200" y="455" text-anchor="middle" fill="#64748b" font-size="10" font-family="Arial, sans-serif">Job: scd2_merge_flow</text>
+  <text x="200" y="470" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Schedule: Daily/On-demand</text>
+  <text x="200" y="485" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Cluster: 1220-164149-p159zqx1</text>
+  
+  <!-- Processing Layer -->
+  <rect x="400" y="120" width="400" height="600" fill="url(#processGradient)" rx="15" filter="url(#shadow)" opacity="0.1"/>
+  <text x="600" y="145" text-anchor="middle" fill="#059669" font-size="16" font-weight="bold" font-family="Arial, sans-serif">
+    ⚡ PROCESSING & VALIDATION
+  </text>
+  
+  <!-- Data Quality -->
+  <rect x="420" y="170" width="160" height="90" fill="white" rx="8" stroke="#43e97b" stroke-width="2" filter="url(#shadow)"/>
+  <text x="500" y="190" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold" font-family="Arial, sans-serif">🔍 PyDeequ Quality</text>
+  <text x="500" y="205" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Completeness checks</text>
+  <text x="500" y="218" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Uniqueness validation</text>
+  <text x="500" y="231" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Non-negativity rules</text>
+  <text x="500" y="244" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Null value detection</text>
+  
+  <!-- Spark Processing -->
+  <rect x="600" y="170" width="160" height="90" fill="white" rx="8" stroke="#43e97b" stroke-width="2" filter="url(#shadow)"/>
+  <text x="680" y="190" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold" font-family="Arial, sans-serif">⚡ Spark Processing</text>
+  <text x="680" y="205" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Join booking &amp; customer</text>
+  <text x="680" y="218" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Calculate total_cost</text>
+  <text x="680" y="231" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Add ingestion_time</text>
+  <text x="680" y="244" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Aggregate by booking_type</text>
+  
+  <!-- Data Transformation -->
+  <rect x="420" y="280" width="340" height="80" fill="white" rx="8" stroke="#43e97b" stroke-width="2" filter="url(#shadow)"/>
+  <text x="590" y="300" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold" font-family="Arial, sans-serif">🔄 Data Transformation Pipeline</text>
+  <text x="590" y="315" text-anchor="middle" fill="#64748b" font-size="10" font-family="Arial, sans-serif">1. Ingest CSV → 2. Quality Validation → 3. Transform &amp; Join → 4. Calculate Metrics</text>
+  <text x="590" y="330" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">total_cost = amount - discount | Add metadata columns | Business aggregations</text>
+  <text x="590" y="345" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Group by: booking_type, customer_id | Sum: amount, quantity, discount</text>
+  
+  <!-- SCD2 Logic -->
+  <rect x="420" y="380" width="340" height="100" fill="white" rx="8" stroke="#43e97b" stroke-width="2" filter="url(#shadow)"/>
+  <text x="590" y="400" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold" font-family="Arial, sans-serif">📊 SCD Type 2 Logic</text>
+  <text x="590" y="415" text-anchor="middle" fill="#64748b" font-size="10" font-family="Arial, sans-serif">Slowly Changing Dimension Implementation</text>
+  <text x="590" y="430" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Update valid_to timestamp for existing records</text>
+  <text x="590" y="443" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Insert new dimension records with valid_from</text>
+  <text x="590" y="456" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Maintain complete historical change tracking</text>
+  <text x="590" y="469" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Version control with effective dating</text>
+  
+  <!-- Tech Stack Box -->
+  <rect x="420" y="500" width="340" height="80" fill="white" rx="8" stroke="#43e97b" stroke-width="2" filter="url(#shadow)"/>
+  <text x="590" y="520" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold" font-family="Arial, sans-serif">🛠️ Technology Stack</text>
+  <text x="590" y="535" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Apache Spark (PySpark) • Databricks Delta Lake • PyDeequ</text>
+  <text x="590" y="548" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">DeltaTable APIs • Databricks Workflows • Databricks Volumes</text>
+  <text x="590" y="561" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">ACID Transactions • Version Control • Distributed Processing</text>
+  
+  <!-- Storage Layer -->
+  <rect x="850" y="120" width="300" height="600" fill="url(#storageGradient)" rx="15" filter="url(#shadow)" opacity="0.1"/>
+  <text x="1000" y="145" text-anchor="middle" fill="#be185d" font-size="16" font-weight="bold" font-family="Arial, sans-serif">
+    🗄️ DELTA LAKE STORAGE
+  </text>
+  
+  <!-- Booking Fact Table -->
+  <rect x="870" y="170" width="260" height="120" fill="white" rx="8" stroke="#fa709a" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1000" y="190" text-anchor="middle" fill="#9d174d" font-size="12" font-weight="bold" font-family="Arial, sans-serif">📈 Booking Fact Table</text>
+  <text x="1000" y="205" text-anchor="middle" fill="#64748b" font-size="10" font-family="Arial, sans-serif">incremental_load.default.booking_fact</text>
+  <text x="1000" y="220" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Aggregated transactional data</text>
+  <text x="1000" y="235" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Columns: booking_type, customer_id</text>
+  <text x="1000" y="248" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">total_amount, total_quantity, avg_discount</text>
+  <text x="1000" y="261" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Strategy: Intelligent Merge/Append</text>
+  <text x="1000" y="274" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Partitioned by: arrival_date</text>
+  
+  <!-- Customer Dimension Table -->
+  <rect x="870" y="310" width="260" height="120" fill="white" rx="8" stroke="#fa709a" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1000" y="330" text-anchor="middle" fill="#9d174d" font-size="12" font-weight="bold" font-family="Arial, sans-serif">👥 Customer Dimension</text>
+  <text x="1000" y="345" text-anchor="middle" fill="#64748b" font-size="10" font-family="Arial, sans-serif">incremental_load.default.customer_dim</text>
+  <text x="1000" y="360" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">SCD2 customer master data</text>
+  <text x="1000" y="375" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Columns: customer_id, name, email</text>
+  <text x="1000" y="388" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">address, valid_from, valid_to</text>
+  <text x="1000" y="401" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Strategy: SCD Type 2 Merge</text>
+  <text x="1000" y="414" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Historical Change Tracking</text>
+  
+  <!-- Data Quality Summary -->
+  <rect x="870" y="450" width="260" height="100" fill="white" rx="8" stroke="#fa709a" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1000" y="470" text-anchor="middle" fill="#9d174d" font-size="12" font-weight="bold" font-family="Arial, sans-serif">🧪 Quality Validation</text>
+  <text x="1000" y="485" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Booking Data:</text>
+  <text x="1000" y="498" text-anchor="middle" fill="#64748b" font-size="8" font-family="Arial, sans-serif">✓ Unique booking_id ✓ Non-negative amounts</text>
+  <text x="1000" y="511" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">Customer Data:</text>
+  <text x="1000" y="524" text-anchor="middle" fill="#64748b" font-size="8" font-family="Arial, sans-serif">✓ Unique customer_id ✓ Valid email format</text>
+  <text x="1000" y="537" text-anchor="middle" fill="#64748b" font-size="8" font-family="Arial, sans-serif">✓ No null names/addresses ✓ Completeness</text>
+  
+  <!-- Performance Metrics -->
+  <rect x="870" y="570" width="260" height="70" fill="white" rx="8" stroke="#fa709a" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1000" y="590" text-anchor="middle" fill="#9d174d" font-size="12" font-weight="bold" font-family="Arial, sans-serif">📊 Pipeline Benefits</text>
+  <text x="1000" y="605" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• ACID Transactions • Time Travel</text>
+  <text x="1000" y="618" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Schema Evolution • Audit Trail</text>
+  <text x="1000" y="631" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial, sans-serif">• Automated Quality • Historical Data</text>
+  
+  <!-- Flow Arrows -->
+  <!-- Source to Processing -->
+  <path d="M350 300 L400 300" stroke="#4facfe" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="375" y="295" text-anchor="middle" fill="#1e40af" font-size="10" font-family="Arial, sans-serif">Ingest</text>
+  
+  <!-- Processing to Storage -->
+  <path d="M800 300 L850 300" stroke="#43e97b" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="825" y="295" text-anchor="middle" fill="#065f46" font-size="10" font-family="Arial, sans-serif">Store</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+  </defs>
+  
+  <!-- Process Flow Numbers -->
+  <circle cx="375" cy="250" r="12" fill="#4facfe" stroke="white" stroke-width="2"/>
+  <text x="375" y="255" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial, sans-serif">1</text>
+  
+  <circle cx="600" cy="250" r="12" fill="#43e97b" stroke="white" stroke-width="2"/>
+  <text x="600" y="255" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial, sans-serif">2</text>
+  
+  <circle cx="825" cy="250" r="12" fill="#fa709a" stroke="white" stroke-width="2"/>
+  <text x="825" y="255" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial, sans-serif">3</text>
+  
+  <!-- Footer -->
+  <rect x="0" y="750" width="1200" height="50" fill="#1e293b"/>
+  <text x="600" y="775" text-anchor="middle" fill="white" font-size="12" font-family="Arial, sans-serif">
+    🚀 Scalable • 🔒 ACID Compliant • 📈 Real-time • 🎯 Quality Assured • 🔄 Automated
+  </text>
+</svg>
