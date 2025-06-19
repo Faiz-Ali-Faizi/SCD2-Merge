@@ -31,6 +31,15 @@ To ensure clean, timely, and historical tracking of customer data and booking tr
 
 ---
 
+## Architechture
+![Pipeline Architecture](scd2_architecture_diagram.svg)
+
+
+
+
+
+
+
 ## ⚙️ Pipeline Workflow
 
 1. **Parameterization**
