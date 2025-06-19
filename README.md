@@ -32,7 +32,8 @@ To ensure clean, timely, and historical tracking of customer data and booking tr
 ---
 
 ## Architechture
-<img src="pipeline_architecture.svg" alt="Pipeline Architecture" width="600"/>
+![Pipeline Architecture](https://raw.githubusercontent.com/Faiz-Ali-Faizi/SCD2-Merge/main/scd2_architecture_diagram.svg)
+
 
 
 
